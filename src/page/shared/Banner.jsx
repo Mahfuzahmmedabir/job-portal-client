@@ -1,7 +1,8 @@
 import React from 'react';
 import { easeOut, motion } from 'framer-motion';
-import imgOne from '../../src/assets/happy.jpg';
-import imgTow from '../../src/assets/54754.jpg';
+
+import imgOne from '../../assets/happy.jpg';
+import imgTow from '../../assets/54754.jpg';
 const Banner = () => {
   return (
     <div>
@@ -16,8 +17,8 @@ const Banner = () => {
             />
             <motion.img
               src={imgTow}
-              animate={{ x: [100, 150,100] }}
-              transition={{ duration: 5, delay:5, repeat: Infinity }}
+              animate={{ x: [100, 150, 100] }}
+              transition={{ duration: 5, delay: 5, repeat: Infinity }}
               className="max-w-sm w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl "
             />
           </div>

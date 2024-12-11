@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import AuthContext from '../../context/AuthContext/AuthContext';
 
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import SocialLogin from '../SocialLogin';
+import SocialLogin from '../shared/SocialLogin';
 const Register = () => {
   const { creatUserEmailP } = useContext(AuthContext);
   const handealSubmit = e => {

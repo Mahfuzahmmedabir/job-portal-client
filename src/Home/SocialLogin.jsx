@@ -1,16 +1,14 @@
 import React, { useContext } from 'react';
-import AuthContext from '../context/AuthContext/AuthContext';
-
+import AuthContext from '../../context/AuthContext/AuthContext';
 
 const SocialLogin = () => {
-  const { signinWithGoogle } = useContext(AuthContext)
-  
+  const { signinWithGoogle } = useContext(AuthContext);
+
   const handeleLogin = () => {
-    signinWithGoogle()
-      .then(result => {
+    signinWithGoogle().then(result => {
       console.log(result.user);
-    })
-  }
+    });
+  };
 
   return (
     <div className="m-4">
