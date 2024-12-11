@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import AuthContext from '../../context/AuthContext/AuthContext';
 
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import SocialLogin from '../SocialLogin';
 const Register = () => {
   const { creatUserEmailP } = useContext(AuthContext);
   const handealSubmit = e => {
@@ -14,7 +15,6 @@ const Register = () => {
     if (!regex.test(password)) {
       return alert('no');
     }
-
 
     creatUserEmailP(email, password)
       .then(result => {
@@ -71,6 +71,7 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
