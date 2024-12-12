@@ -25,11 +25,10 @@ const Banner = () => {
 
           <div className="flex-1">
             <motion.h1
-              animate={{ x: 50 }}
+              animate={{ x: [100, 50, 100] }}
               transition={{
-                duration: 2,
-                delay: 1,
-                ease: easeOut,
+                duration: 10,
+                delay: 5,
                 repeat: Infinity,
               }}
               className="text-5xl font-bold"
