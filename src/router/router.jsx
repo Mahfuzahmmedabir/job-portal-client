@@ -4,6 +4,9 @@ import MainLayout from '../layout/MainLayout';
 import Register from '../page/register/Register';
 import Login from '../page/Login/Login';
 import JobDeatils from '../page/shared/JobDeatils';
+import ProviteRoute from '../page/shared/ProviteRoute';
+import JobApply from '../page/shared/JobApply';
+
 
 
 
@@ -18,9 +21,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/jobs/:id',
-        element: <JobDeatils></JobDeatils>,
+        element: (
+          <ProviteRoute>
+            <JobDeatils></JobDeatils>
+          </ProviteRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/jobs/${params.id}`),
+      },
+      {
+        path: '/jobApply/:id',
+        element: <ProviteRoute>
+          <JobApply></JobApply>
+        </ProviteRoute>
       },
       {
         path: '/register',

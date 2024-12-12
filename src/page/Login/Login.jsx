@@ -2,8 +2,13 @@ import React, { useContext } from 'react';
 import LoginLotty from '../../assets/Login.json';
 import AuthContext from '../../context/AuthContext/AuthContext';
 import Lottie from 'lottie-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
   const { loginWithEmail } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate()
+  console.log('Login page', location);
+  const forms = location?.state || '/'
   const handealLogin = e => {
     e.preventDefault();
     const form = e.target;
@@ -13,6 +18,7 @@ const Login = () => {
       .then(result => {
         alert('user sussefull');
         console.log(result.user);
+        navigate(forms);
       })
       .catch(error => {
         const errorCode = error.code;
