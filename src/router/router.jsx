@@ -7,6 +7,7 @@ import JobDeatils from '../page/shared/JobDeatils';
 import ProviteRoute from '../page/shared/ProviteRoute';
 import JobApply from '../page/shared/JobApply';
 import JopPost from '../page/JopPost';
+import MyJobsPost from '../page/MyJobsPost';
 
 
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/jobpost',
         element:<ProviteRoute><JopPost></JopPost></ProviteRoute>
+      },
+      {
+        path: '/myjobpost',
+        element:<ProviteRoute><MyJobsPost></MyJobsPost></ProviteRoute>
       }
     ],
   },

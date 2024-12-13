@@ -1,13 +1,61 @@
 import React from 'react';
 
 const JopPost = () => {
-
-  const handealJopPost = (e) => {
+  const handealJopPost = e => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const initialData = Object.fromEntries(formData.entries())
-    console.log(initialData)
-  }
+    const initialData = Object.fromEntries(formData.entries());
+    console.log(initialData);
+    const { min, max, curnnrey, ...newForm } = initialData;
+    console.log(newForm);
+    newForm.salaryRange = { min, max, curnnrey };
+    newForm.requirements = newForm.requirements.split('\n');
+    console.log(newForm);
+
+    fetch('http://localhost:5000/jobs', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(newForm),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
+  };
+
+  // ;
+  // ('Marketing Specialist');
+  // ;
+  // ('Banani, Dhaka');
+  // ;
+  // ('Remote');
+  // category;
+  // ('Marketing');
+  // applicationDeadline;
+  // ('2024-12-15');
+  // jobtype
+  // salaryRange;
+  // Object;
+  // description;
+  // ('Join our marketing team to strategize and implement innovative campaig…');
+  // company;
+  // ('GoatMark Inc');
+
+  // requirements;
+  // Array(4);
+
+  // responsibilities;
+  // Array(3);
+  // status;
+  // ('active');
+  // hr_email;
+  // ('recruitment@brightmark.com');
+  // hr_name;
+  // ('Tasnia Ahmed');
+  // company_logo;
+  // (
   return (
     <div>
       <form onSubmit={handealJopPost} className="card-body">
@@ -45,7 +93,10 @@ const JopPost = () => {
           <label className="label">
             <span className="label-text">Job cartagory</span>
           </label>
-          <select name="cartagory" className="select select-ghost w-full ">
+          <select
+            name="category"
+            className="select bg-slate-200 select-ghost w-full "
+          >
             <option disabled selected>
               Pick a job Cartagory
             </option>
@@ -60,7 +111,10 @@ const JopPost = () => {
           <label className="label">
             <span className="label-text text-xl font-bold">Job fild</span>
           </label>
-          <select name="jobfild" className="select select-ghost w-full ">
+          <select
+            name="jobtype"
+            className="select bg-slate-200 select-ghost w-full "
+          >
             <option disabled selected>
               Pick the job fild
             </option>
@@ -69,8 +123,21 @@ const JopPost = () => {
             <option>Teaching</option>
           </select>
         </div>
-        {/* salry range */}
+        {/* applicationDeadline */}
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text"></span>
+          </label>
+          <input
+            type="date"
+            name="applicationDeadline"
+            placeholder="Max"
+            className="input input-bordered"
+            required
+          />
+        </div>
 
+        {/* salry range */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-end">
           <div className="form-control">
             <label className="label">
@@ -91,12 +158,13 @@ const JopPost = () => {
             </label>
             <input
               type="text"
-              name="Max"
+              name="max"
               placeholder="Max"
               className="input input-bordered"
               required
             />
           </div>
+
           <div className="form-control">
             <label className="label">
               <span className="label-text"></span>
@@ -124,7 +192,7 @@ const JopPost = () => {
           <textarea
             className="textarea textarea-bordered"
             placeholder="Job Decription"
-            name="decription"
+            name="description"
             required
           ></textarea>
         </div>
@@ -148,8 +216,8 @@ const JopPost = () => {
           </label>
           <textarea
             className="textarea textarea-bordered"
-            name="textarea"
-            placeholder="put each  requrements in new line"
+            name="requirements"
+            placeholder="put each requrements in new line"
             required
           ></textarea>
           {/* hr email */}
@@ -159,7 +227,7 @@ const JopPost = () => {
             </label>
             <input
               type="email"
-              name="email"
+              name="hr_email"
               placeholder="HR Email"
               className="input input-bordered"
               required
@@ -173,7 +241,7 @@ const JopPost = () => {
           </label>
           <input
             type="text"
-            name="hr-name"
+            name="hr_name"
             placeholder="HR name"
             className="input input-bordered"
             required
@@ -186,8 +254,8 @@ const JopPost = () => {
           </label>
           <input
             type="url"
-            name="url"
-            placeholder="company log"
+            name="company_logo"
+            placeholder="log url"
             className="input input-bordered"
             required
           />

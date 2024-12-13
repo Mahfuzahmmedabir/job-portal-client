@@ -8,9 +8,10 @@ const Navbar = () => {
   const links = (
     <>
       <NavLink>Home</NavLink>
-      <NavLink>Home</NavLink>
+      <NavLink to={'/'}>Home</NavLink>
       <NavLink to={'/'}>My application</NavLink>
       <NavLink to={'/jobpost'}>Job Post</NavLink>
+      <NavLink to={'/myjobpost'}>My</NavLink>
     </>
   );
   return (

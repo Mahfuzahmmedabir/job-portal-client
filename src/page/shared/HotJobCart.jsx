@@ -42,7 +42,7 @@ const HotJobCart = ({ job }) => {
           </p>
         </div>
         <div className=" flex gap-2 flex-wrap mt-3">
-          {requirements.map(skill => (
+          {requirements?.map(skill => (
             <p className="flex border py-2 px-3"> {skill}</p>
           ))}
         </div>
