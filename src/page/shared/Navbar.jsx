@@ -9,8 +9,8 @@ const Navbar = () => {
     <>
       <NavLink>Home</NavLink>
       <NavLink>Home</NavLink>
-      <NavLink>Home</NavLink>
-      <NavLink>Home</NavLink>
+      <NavLink to={'/'}>My application</NavLink>
+      <NavLink to={'/jobpost'}>Job Post</NavLink>
     </>
   );
   return (

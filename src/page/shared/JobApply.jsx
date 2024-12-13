@@ -24,6 +24,19 @@ const JobApply = () => {
       linding, 
     };
 
+    fetch('http://localhost:5000/job-application', {
+      method: 'POST',
+      headers: {
+       'content-type':  'application/json'
+      },
+      
+      body: JSON.stringify(jobapplication )
+    })
+      .then(res => res.json())
+      .then(data => {
+      console.log(data)
+    })
+
 
   };
 
